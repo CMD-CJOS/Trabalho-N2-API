@@ -3,36 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trabalho Final</title>
+    <title>Trabalho Final - Site</title>
+    <link rel="stylesheet" href="css/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-        header { background: #333; color: #fff; padding: 1rem; text-align: center; }
-        nav ul { list-style: none; padding: 0; display: flex; justify-content: center; gap: 20px; }
-        nav a { color: #fff; text-decoration: none; cursor: pointer; }
-        main { padding: 20px; max-width: 1200px; margin: auto; }
-        .grid-posts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .post-card { border: 1px solid #ccc; padding: 15px; border-radius: 8px; }
-        .post-card img { max-width: 100%; height: auto; }
-    </style>
 </head>
 <body>
-
-    <header>
-        <h2>Meu Site</h2>
+    <header class="main-header">
+        <div class="logo">
+            <span>⚡ WebSite</span>
+        </div>
         <nav>
             <ul>
-                <li><a data-page="inicio">Início</a></li>
-                <li><a data-page="quem-somos">Quem Somos</a></li>
-                <li><a data-page="blog">Blog</a></li>
-                <li><a data-page="faq">FAQ</a></li>
-                <li><a data-page="contato">Contato</a></li>
+                <li><a href="#" data-page="inicio">Início</a></li>
+                <li><a href="#" data-page="quem-somos">Quem Somos</a></li>
+                <li><a href="#" data-page="blog">Blog</a></li>
+                <li><a href="#" data-page="faq">FAQ</a></li>
+                <li><a href="#" data-page="contato">Contato</a></li>
             </ul>
         </nav>
+        <div class="social-icons">
+            <span>📘</span> <span>🐦</span> <span>📸</span>
+        </div>
     </header>
 
-    <main id="conteudo-principal">
-    </main>
+    <main id="content" class="container"></main>
 
     <script src="js/app.js"></script>
 </body>

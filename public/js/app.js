@@ -1,44 +1,36 @@
 $(document).ready(function() {
-    
-    function carregarPagina(pagina) {
+    function loadPage(page) {
         $.ajax({
-            url: `pages/${pagina}.html`,
+            url: 'pages/' + page + '.html',
             method: 'GET',
             success: function(data) {
-                $('#conteudo-principal').html(data);
-                
-                if(pagina === 'blog') {
-                    carregarPosts();
+                $('#content').html(data);
+                if (page === 'inicio') {
+                    initSlider();
                 }
             },
             error: function() {
-                $('#conteudo-principal').html('<p>Erro ao carregar a página.</p>');
+                $('#content').html('<p>Erro ao carregar o conteúdo.</p>');
             }
         });
     }
 
     $('nav a').click(function(e) {
         e.preventDefault();
-        const pagina = $(this).data('page');
-        carregarPagina(pagina);
+        let page = $(this).data('page');
+        loadPage(page);
     });
 
-    carregarPagina('inicio');
+    loadPage('inicio');
 
-    function carregarPosts() {
-        $.get('/api/posts', function(posts) {
-            let html = '<div class="grid-posts">';
-            posts.forEach(post => {
-                html += `
-                    <div class="post-card">
-                        <img src="${post.image_url}" alt="${post.title}">
-                        <h3>${post.title}</h3>
-                        <p>${post.content}</p>
-                    </div>
-                `;
-            });
-            html += '</div>';
-            $('#container-posts').html(html);
-        });
+    function initSlider() {
+        let slides = $('.slide');
+        let currentIndex = 0;
+
+        setInterval(function() {
+            $(slides[currentIndex]).removeClass('active');
+            currentIndex = (currentIndex + 1) % slides.length;
+            $(slides[currentIndex]).addClass('active');
+        }, 3000);
     }
 });

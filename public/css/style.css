@@ -11,43 +11,62 @@ body {
 }
 
 .main-header {
-    background-color: #17152b;
-    color: #fff;
+    background-color: #171626;
+    color: #ffffff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 50px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 15px 40px;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.logo span {
+.logo {
     font-size: 24px;
-    font-weight: bold;
-    color: #fff;
+    font-weight: 900;
+    letter-spacing: 1px;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 25px;
+    align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
 nav a {
-    color: #aeb1b8;
+    color: #e2e8f0;
     text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 8px 14px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: all 0.3s;
     text-transform: uppercase;
-    transition: color 0.3s;
 }
 
-nav a:hover {
-    color: #fff;
+nav a:hover, nav a.active {
+    color: #ffffff;
+    border-color: #ffffff;
 }
 
-.social-icons span {
+.header-icons {
+    display: flex;
+    gap: 15px;
+    font-size: 16px;
     cursor: pointer;
-    margin-left: 15px;
+    align-items: center;
+}
+
+.header-icons span {
+    transition: transform 0.2s;
+}
+
+.header-icons span:hover {
+    transform: scale(1.1);
 }
 
 .container {
@@ -109,6 +128,7 @@ nav a:hover {
     font-size: 1.2rem;
     color: #e0e0e0;
 }
+
 h2 {
     color: #17152b;
     margin-bottom: 20px;
@@ -198,4 +218,54 @@ summary {
     font-weight: bold;
     cursor: pointer;
     color: #17152b;
+}
+
+#curriculo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.curriculo-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    #curriculo-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.foto-perfil {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 15px auto;
+    display: block;
+}
+
+.btn-download {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.btn-download:hover {
+    background-color: #0056b3;
 }

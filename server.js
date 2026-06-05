@@ -1,24 +1,24 @@
 const express = require('express');
-const mysql = require('mysql2');
+const { Pool } = require('pg');
 const path = require('path');
 const app = express();
 
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '', 
-    database: 'site_institucional'
+const pool = new Pool({
+    connectionString: 'postgresql://postgres:[YOUR-PASSWORD]@db.pntfvzkivjriiyvmuxqv.supabase.co:5432/postgres',
+    ssl: {
+        rejectUnauthorized: false
+    }
 });
 
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/api/posts', (req, res) => {
-    db.query('SELECT * FROM posts LIMIT 12', (err, results) => {
+    pool.query('SELECT * FROM posts LIMIT 12', (err, results) => {
         if (err) {
             res.status(500).send(err);
             return;
         }
-        res.json(results);
+        res.json(results.rows);
     });
 });
 
